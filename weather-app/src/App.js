@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 const api = {
   key: "04f5294ce518461a0092949c6a2506f6",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/",
+  icon: "http://openweathermap.org/img/wn/"
 };
 
 
@@ -30,7 +31,7 @@ function App() {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let day = days[d.getDay()];
-    let date = d.getDate() + 1;
+    let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
@@ -60,9 +61,16 @@ function App() {
               <div className='date'>{dateBuilder(new Date())}</div>
             </div>
             <div className='weather-box'>
-              <div className='temp'>{Math.round(weather.main.temp *10)/10 + "°C"}</div>
-              <div className='weather'>{weather.weather[0].main}</div>
-              <img src=" http://openweathermap.org/img/wn/10d@.png" alt="weather icon"></img>
+              <div className='temp'>{Math.round(weather.main.temp * 10) / 10 + "°C"}</div>
+              <div className='weather'>
+                <div className='weather-content'>
+                  <div>
+                    <img src={api.icon + weather.weather[0].icon + "@2x.png"} alt="weather icon"></img>
+                  </div>
+                  <span>{weather.weather[0].main}</span>
+                </div>
+              </div>
+
             </div>
           </div>
         ) : ('')}

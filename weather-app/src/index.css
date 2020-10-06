@@ -6,6 +6,8 @@
 
 body {
   font-family: 'montseratt', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .app {
@@ -14,6 +16,7 @@ body {
   background-position: bottom;
   transition: 0.4s ease-out;
   width: 450px;
+  margin: 0;
 }
 
 .app.warm {
@@ -24,6 +27,7 @@ main {
   min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
   padding: 25px;
+
 }
 
 .search-box {
@@ -99,4 +103,12 @@ main {
   font-size: 48px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+.weather-box .weather .weather-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.weather-box .weather .weather-content span {
+  padding-top: 25px;
 }
